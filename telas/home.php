@@ -1,47 +1,18 @@
-<?php
-require_once('../../DAO/EncomendaDAO.php');
-require_once('../../DAO/conexao.php');
-
-use Projeto\DAO\EncomendaDAO;
-use Projeto\DAO\Conexao;
-
-$dao = new EncomendaDAO();
-$conn = (new Conexao())->conectar();
-
-if($_POST){
-    $dao->inserir(
-        $_POST['descricao'],
-        $_POST['peso'],
-        $_POST['valor'],
-        $_POST['horario'],
-        $_POST['situacao'],
-        $_POST['cliente'],
-        $_POST['roteiro']
-    );
-
-    echo "Encomenda cadastrada!";
-    header("Location: listar.php");
-    exit;
-}
-
-$clientes = mysqli_query($conn, "SELECT * FROM cliente");
-$roteiros = mysqli_query($conn, "SELECT * FROM roteiroEntrega");
-?>
 <!doctype html>
 <html lang="pt-br">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cadastrar Encomenda - CargoTech</title>
-    <link rel="stylesheet" href="../../css/style.css">
+    <title>CargoTech</title>
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css" rel="stylesheet"/>
-    <link rel="shortcut icon" href="../../img/favicon.png" type="image/x-icon">
-    </head>
-  <body>
-    <header>
+    <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
+  </head>
+  <body></body>
+   <header>
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg bg-body fixed-top">
           <div class="container-fluid">
@@ -57,15 +28,15 @@ $roteiros = mysqli_query($conn, "SELECT * FROM roteiroEntrega");
               <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse " id="navbarExample01">
-            <a href="index.php"><img src="../../img/logo.png" alt="" width="200px"></a>
+            <a href="index.php"><img src="../img/logo.png" alt="" width="200px"></a>
               <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="clienteDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
                     Cliente
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="clienteDropdown">
-                    <li><a class="dropdown-item" href="../../cliente/editar.php">Editar Cliente</a></li>
-                    <li><a class="dropdown-item" href="../../cliente/listar.php">Listar Cliente</a></li>
+                    <li><a class="dropdown-item" href="cliente/editar.php">Editar Cliente</a></li>
+                    <li><a class="dropdown-item" href="cliente/listar.php">Listar Cliente</a></li>
                   </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -73,8 +44,8 @@ $roteiros = mysqli_query($conn, "SELECT * FROM roteiroEntrega");
                     Encomenda
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="encomendaDropdown">
-                    <li><a class="dropdown-item" href="../../encomenda/editar.php">Editar Encomenda</a></li>
-                    <li><a class="dropdown-item" href="../../encomenda/listar.php">Listar Encomenda</a></li>
+                    <li><a class="dropdown-item" href="encomenda/editar.php">Editar Encomenda</a></li>
+                    <li><a class="dropdown-item" href="encomenda/listar.php">Listar Encomenda</a></li>
                   </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -82,8 +53,8 @@ $roteiros = mysqli_query($conn, "SELECT * FROM roteiroEntrega");
                     Entregador
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="entregadorDropdown">
-                    <li><a class="dropdown-item" href="../../entregador/editar.php">Editar Entregador</a></li>
-                    <li><a class="dropdown-item" href="../../entregador/listar.php">Listar Entregador</a></li>
+                    <li><a class="dropdown-item" href="entregador/editar.php">Editar Entregador</a></li>
+                    <li><a class="dropdown-item" href="entregador/listar.php">Listar Entregador</a></li>
                   </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -91,8 +62,8 @@ $roteiros = mysqli_query($conn, "SELECT * FROM roteiroEntrega");
                     Roteiro
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="roteiroDropdown">
-                    <li><a class="dropdown-item" href="../../roteiro/editar.php">Editar Roteiro</a></li>
-                    <li><a class="dropdown-item" href="../../roteiro/listar.php">Listar Roteiro</a></li>
+                    <li><a class="dropdown-item" href="roteiro/editar.php">Editar Roteiro</a></li>
+                    <li><a class="dropdown-item" href="roteiro/listar.php">Listar Roteiro</a></li>
                   </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -100,12 +71,12 @@ $roteiros = mysqli_query($conn, "SELECT * FROM roteiroEntrega");
                     Veiculo
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="veiculoDropdown">
-                    <li><a class="dropdown-item" href="../../veiculo/editar.php">Editar Veiculo</a></li>
-                    <li><a class="dropdown-item" href="../../veiculo/listar.php">Listar Veiculo</a></li>
+                    <li><a class="dropdown-item" href="veiculo/editar.php">Editar Veiculo</a></li>
+                    <li><a class="dropdown-item" href="veiculo/listar.php">Listar Veiculo</a></li>
                   </ul>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" aria-current="page" href="../../telas/home.php">Voltar</a>
+                  <a class="nav-link" aria-current="page" href="../telas/home.php">Voltar</a>
                 </li>
               </ul>
             </div>
@@ -128,25 +99,58 @@ $roteiros = mysqli_query($conn, "SELECT * FROM roteiroEntrega");
         </nav>
         <!-- Navbar -->
       </header>
-  
-</form>
+
+  <!-- Section: Design Block -->
 <section class="background-radial-gradient overflow-hidden">
+    <style>
+      .background-radial-gradient {
+        background-color: hsl(218, 41%, 15%);
+        background-image: radial-gradient(650px circle at 0% 0%,
+            hsl(218, 41%, 35%) 15%,
+            hsl(218, 41%, 30%) 35%,
+            hsl(218, 41%, 20%) 75%,
+            hsl(218, 41%, 19%) 80%,
+            transparent 100%),
+          radial-gradient(1250px circle at 100% 100%,
+            hsl(218, 41%, 45%) 15%,
+            hsl(218, 41%, 30%) 35%,
+            hsl(218, 41%, 20%) 75%,
+            hsl(218, 41%, 19%) 80%,
+            transparent 100%);
+      }
+  
+      #radius-shape-1 {
+        height: 220px;
+        width: 220px;
+        top: -60px;
+        left: -130px;
+        background: radial-gradient(#44006b, #ad1fff);
+        overflow: hidden;
+      }
+  
+      #radius-shape-2 {
+        border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+        bottom: -60px;
+        right: -110px;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(#44006b, #ad1fff);
+        overflow: hidden;
+      }
+  
+      .bg-glass {
+        background-color: hsla(0, 0%, 100%, 0.9) !important;
+        backdrop-filter: saturate(200%) blur(25px);
+      }
+    </style>
+  
     <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
       <div class="row gx-lg-5 align-items-center mb-5">
         <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
           <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
-          Cadastro de Encomenda<br />
-            <span style="color: hsl(218, 81%, 75%)">rápido e simples</span>
+            Sua Entrega<br />
+            <span style="color: hsl(218, 81%, 75%)">Começa Aqui.</span>
           </h1>
-          <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
-            Registre novas encomendas de forma simples e organizada.<br><br>
-          
-            Preencha as informações necessárias para garantir o controle
-            completo da entrega, desde o envio até a finalização.<br><br>
-        
-            Com poucos dados, você já pode acompanhar o status
-            e manter sua operação sempre atualizada.
-          </p>
         </div>
   
         <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
@@ -155,67 +159,35 @@ $roteiros = mysqli_query($conn, "SELECT * FROM roteiroEntrega");
   
           <div class="card bg-glass">
             <div class="card-body px-4 py-5 px-md-5">
-              <form method="POST">
+              <form>
                 <!-- 2 column grid layout with text inputs for the first and last names -->
                 <div class="row">
-                <h4 class="mb-5 text-left"><strong>Especificações da Encomenda:</strong></h4>
 
-                <div data-mdb-input-init class="form-outline mb-4">
-                  <input type="text" id="form3Example4" class="form-control" name="descricao"/>
-                  <label class="form-label" for="form3Example4">Descrição: </label>
+                <h4 class="titulo">Cadastro<h4>
+
+                <div class="d-grid gap-2 col-6 mx-auto">
+                  <a class="btn btn-primary btn-lg" href="usuario/cadastrar.php" role="button">Usuario</a>
+
+                <a class="btn btn-primary btn-lg" href="cliente/cadastrar.php" role="button">Cliente</a>
+
+                <a class="btn btn-primary btn-lg" href="encomenda/cadastrar.php" role="button">Encomenda</a>
+
+                <a class="btn btn-primary btn-lg" href="entregador/cadastrar.php" role="button">Entregador</a>
+                
+                <a class="btn btn-primary btn-lg" href="roteiro/cadastrar.php" role="button">Roteiro</a>
+
+                <a class="btn btn-primary btn-lg" href="veiculo/cadastrar.php" role="button">Veiculo</a>
+
+                <a class="btn btn-primary btn-lg" href="../index.php" role="button">Sair</a>
                 </div>
-
-                <!-- Email input -->
-                <div data-mdb-input-init class="form-outline mb-4">
-                    
-                    <input type="number" step="0.01" id="form3Example3" class="form-control" name="peso"/>
-                    <label class="form-label" for="form3Example3">Peso: </label>
                 </div>
-  
-                <!-- Password input -->
-                <div data-mdb-input-init class="form-outline mb-4">
-                  <input type="time" id="form3Example4" class="form-control" name="horario"/>
-                  <label class="form-label" for="form3Example4">Horário: </label>
+                
+
+                
+                
+                  
+                  </button>
                 </div>
-
-                <div data-mdb-input-init class="form-outline mb-4">
-                  <input type="text" id="form3Example4" class="form-control" name="situacao"/>
-                  <label class="form-label" for="form3Example4">Situação: </label>
-                </div>
-
-
-                <!-- CLIENTE -->
-<div class="form-outline mb-4">
-  <select class="form-select" name="cliente" required>
-    
-    <option selected disabled>Selecione um cliente</option>
-
-    <?php while($c = mysqli_fetch_assoc($clientes)){ ?>
-      <option value="<?= $c['codigo'] ?>">
-        <?= $c['nome'] ?>
-      </option>
-    <?php } ?>
-
-  </select>
-</div>
-
-<!-- ROTEIRO -->
-<div class="form-outline mb-4">
-  <select class="form-select" name="roteiro" required>
-    
-    <option selected disabled>Selecione um roteiro</option>
-
-    <?php while($r = mysqli_fetch_assoc($roteiros)){ ?>
-      <option value="<?= $r['codigo'] ?>">
-        <?= $r['regiaoEntrega'] ?> - <?= $r['diaEntrega'] ?>
-      </option>
-    <?php } ?>
-
-  </select>
-</div>
-
-                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block-mb-4" >Cadastrar</button>
-                <!-- Register buttons -->
               </form>
             </div>
           </div>
@@ -223,32 +195,15 @@ $roteiros = mysqli_query($conn, "SELECT * FROM roteiroEntrega");
       </div>
     </div>
   </section>
-       <!-- Footer -->
-       <footer class="text-center text-lg-start bg-body-tertiary text-muted">
+
+      
+        <!-- Footer -->
+<footer class="text-center text-lg-start bg-body-tertiary text-muted">
     <!-- Section: Social media -->
     <section class="d-flex justify-content-center border-bottom">
     
       <!-- Right -->
-      <div>
-        <a href="" class="me-4 text-reset">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        </a>
-        <a href="" class="me-4 text-reset">
-          <i class="fab fa-google"></i>
-        </a>
-        <a href="" class="me-4 text-reset">
-          <i class="fab fa-twitter"></i>
-        <a href="" class="me-4 text-reset">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="" class="me-4 text-reset">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="" class="me-4 text-reset">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </div>
+     
       <!-- Right -->
     </section>
     <!-- Section: Social media -->
@@ -262,7 +217,7 @@ $roteiros = mysqli_query($conn, "SELECT * FROM roteiroEntrega");
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
 
-              <img src="../../img/logo.png" alt="" width="250px">
+              <img src="../img/logo.png" alt="" width="250px">
               <br><br>
             <p class="text-center">
             Mais do que entregas, movimentamos tecnologia com confiança, eficiência e inovação.
@@ -342,7 +297,7 @@ $roteiros = mysqli_query($conn, "SELECT * FROM roteiroEntrega");
   </footer>
   <!-- Footer -->
   <!-- Section: Design Block -->
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.js"></script>
-  
   </body>
 </html>

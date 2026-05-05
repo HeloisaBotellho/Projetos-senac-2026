@@ -352,6 +352,8 @@ $veiculos = mysqli_query($conn, "SELECT * FROM veiculo");
     <!-- Copyright -->
     <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
       © 2026 Copyright: Desenvolvido por
+      <a class="text-reset fw-bold" href="https://github.com/HeloisaBotellho">Heloísa Botelho</a>
+      &
       <a class="text-reset fw-bold" href="https://github.com/SilvioCalixto" target="_blank">Silvio Calixto</a>
     </div>
     <!-- Copyright -->

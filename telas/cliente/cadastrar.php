@@ -58,8 +58,8 @@ if($_POST){
     </head>
   <body>
     <header>
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg bg-body fixed-top" >
+       <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg bg-body fixed-top">
           <div class="container-fluid">
             <button
               data-mdb-collapse-init
@@ -73,39 +73,55 @@ if($_POST){
               <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse " id="navbarExample01">
-            <a href="../../index.php"><img src="../../img/logo.png" alt="" width="200px"></a>
+            <a href="index.php"><img src="../../img/logo.png" alt="" width="200px"></a>
               <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="clienteDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                    Cliente
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="clienteDropdown">
+                    <li><a class="dropdown-item" href="../../cliente/editar.php">Editar Cliente</a></li>
+                    <li><a class="dropdown-item" href="../../cliente/listar.php">Listar Cliente</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="encomendaDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                    Encomenda
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="encomendaDropdown">
+                    <li><a class="dropdown-item" href="../../encomenda/editar.php">Editar Encomenda</a></li>
+                    <li><a class="dropdown-item" href="../../encomenda/listar.php">Listar Encomenda</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="entregadorDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                    Entregador
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="entregadorDropdown">
+                    <li><a class="dropdown-item" href="../../entregador/editar.php">Editar Entregador</a></li>
+                    <li><a class="dropdown-item" href="../../entregador/listar.php">Listar Entregador</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="roteiroDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                    Roteiro
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="roteiroDropdown">
+                    <li><a class="dropdown-item" href="../../roteiro/editar.php">Editar Roteiro</a></li>
+                    <li><a class="dropdown-item" href="../../roteiro/listar.php">Listar Roteiro</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="veiculoDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                    Veiculo
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="veiculoDropdown">
+                    <li><a class="dropdown-item" href="../../veiculo/editar.php">Editar Veiculo</a></li>
+                    <li><a class="dropdown-item" href="../../veiculo/listar.php">Listar Veiculo</a></li>
+                  </ul>
+                </li>
                 <li class="nav-item active">
-                  <a class="nav-link" aria-current="page" href="../../index.php">Início</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link " href="../institucional/sobre.php">Quem Somos</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../institucional/contato.php">Contato</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../institucional/menu.php"> Menu</a>
-                </li>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../cliente/listar.php">Cliente</a>
-                </li>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../encomenda/listar.php">Encomenda</a>
-                </li>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../entregador/listar.php">Entregador</a>
-                </li>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../veiculo/listar.php">Veículo</a>
-                </li>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../roteiro/listar.php">Roteiro</a>
+                  <a class="nav-link" aria-current="page" href="../../telas/home.php">Voltar</a>
                 </li>
               </ul>
             </div>
@@ -335,6 +351,8 @@ if($_POST){
     <!-- Copyright -->
     <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
       © 2026 Copyright: Desenvolvido por
+      <a class="text-reset fw-bold" href="https://github.com/HeloisaBotellho">Heloísa Botelho</a>
+      &
       <a class="text-reset fw-bold" href="https://github.com/SilvioCalixto" target="_blank">Silvio Calixto</a>
     </div>
     <!-- Copyright -->

@@ -150,7 +150,7 @@ if($_POST){
   
                 <!-- Submit button -->
 
-                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block-mb-4" href="cadastrar.php">Login</button>
+                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block-mb-4" href="telas/home.php">Login</button>
                 <!-- Register buttons -->
                 <div class="text-left">
                   <br>
@@ -170,26 +170,7 @@ if($_POST){
     <section class="d-flex justify-content-center border-bottom">
     
       <!-- Right -->
-      <div>
-        <a href="" class="me-4 text-reset">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        </a>
-        <a href="" class="me-4 text-reset">
-          <i class="fab fa-google"></i>
-        </a>
-        <a href="" class="me-4 text-reset">
-          <i class="fab fa-twitter"></i>
-        <a href="" class="me-4 text-reset">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="" class="me-4 text-reset">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="" class="me-4 text-reset">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </div>
+     
       <!-- Right -->
     </section>
     <!-- Section: Social media -->
@@ -275,7 +256,7 @@ if($_POST){
     <!-- Copyright -->
     <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
       © 2026 Copyright: Desenvolvido por
-      <a class="text-reset fw-bold" href="!#">Heloísa</a>
+      <a class="text-reset fw-bold" href="https://github.com/HeloisaBotellho">Heloísa Botelho</a>
       &
       <a class="text-reset fw-bold" href="https://github.com/SilvioCalixto" target="_blank">Silvio Calixto</a>
     </div>
